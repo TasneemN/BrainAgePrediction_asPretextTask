@@ -1,4 +1,5 @@
-# Voxel_Brain_Age_Prediction_as_a_Pretext_Task
+# BrainAgePrediction_as_Pretext_Task
+##Investigating Voxel-level Brain Age Prediction as a Pretext Task for  Brain MRI Segmentation
 ## Overview
 This project provides a full pipeline for:
 - Creating voxel-level brain age maps

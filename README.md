@@ -87,4 +87,3 @@ For each main task in this pipeline (brain age mask creation, inpainting pretrai
 5. Compare segmentation results to assess the impact of pretraining.
 
 _For more details, see the documentation at the top of each script._  
-_If you use this pipeline, please cite the relevant MONAI and PyTorch resources._

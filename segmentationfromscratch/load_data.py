@@ -24,16 +24,13 @@ Functions:
 
 import os
 import csv
-import random
-from collections import defaultdict
 import pandas as pd
-import csv
-import os
 import random
 import numpy as np
 import torch
 from collections import defaultdict
 from monai.data import CacheDataset, ThreadDataLoader
+
 
 def load_data(
     output_dir,
@@ -145,12 +142,7 @@ def load_data(
     print(f"Train samples: {len(train_data)}, Validation samples: {len(val_data)}, Test samples: {len(test_data)}")
 
     return ds_train, train_loader, ds_val, val_loader, ds_test, test_loader
-import os
-import random
-import pandas as pd
-from collections import defaultdict
-from monai.data import CacheDataset, ThreadDataLoader
-import torch
+
 def load_last_model(model, optimizer, scheduler, directory_name, reset_lr=None):
     """
     Load the last saved model checkpoint to resume training if available.

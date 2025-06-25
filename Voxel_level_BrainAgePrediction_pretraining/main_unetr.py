@@ -68,14 +68,7 @@ def main():
         spatial_dims=3,  # 3D input for dimensions (128, 160, 128)
         in_channels=1,   # Number of input channels
         out_channels=1,  # Number of output channels
-        img_size=(128, 160, 128),  # Input image size
-        feature_size=48,  # Feature size, adjust based on your needs
-        hidden_size=768,  # Hidden size of the transformer
-        mlp_dim=3072,     # MLP dimension in the transformer
-        num_heads=12,     # Number of attention heads
-        pos_embed="perceptron",  # Position embedding method
-        norm_name="instance",  # Normalization type
-        dropout_rate=0.0,  # Dropout rate
+        img_size=(128, 160, 128)  # Input image size
     )
 
 

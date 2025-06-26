@@ -14,6 +14,10 @@ def load_age_data(csv_file, participant_id_column, age_column):
 def add_noise(image, age_value):
     noise = torch.randint_like(image, low=-2, high=3)
     noised_image = torch.add(image, noise)
+    # Ensure all voxel values are set to the same age value (removing the added noise).
+    # This line effectively overwrites the noise we added, as the ground truth for validation and test set should not contain any noise.
+    # We separated the noise addition logic into the `introducingnoise.py` script.
+    # If you prefer to add noise in a single step, you can modify this line accordingly.
     noised_image[noised_image != age_value] = age_value  # Make sure all voxel values contain the same age number
     return noised_image
 

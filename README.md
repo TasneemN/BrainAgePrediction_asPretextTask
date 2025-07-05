@@ -1,14 +1,19 @@
 # Investigating Voxel-level Brain Age Prediction as a Pretext Task for  Brain MRI Segmentation
 ## Overview
 This project provides a full pipeline for:
+- Installing Dependencies
 - Creating voxel-level brain age maps
 - Pretraining models for inpainting and voxel-level brain age prediction
 - Using these pretrained weights for transfer learning or self-supervised learning in 3D brain image segmentation
 - Comparing segmentation performance with and without pretraining
 
 ## Workflow
+### 1. Installing Dependencies
+Dependencies can be installed using:
+`conda env create -f environment.yml`
 
-### 1. Create Voxel-Level Brain Age Maps
+
+### 2. Create Voxel-Level Brain Age Maps
 Before any model training, you must generate voxel-level brain age maps for your dataset.  
 Navigate to `creating_brain_age_masks/` and run the scripts in this order:
 - `assigningageforeachvoxel.py`: Assigns each voxel the participant's age (with optional noise).
@@ -16,7 +21,7 @@ Navigate to `creating_brain_age_masks/` and run the scripts in this order:
 - `onemasksheaders.py`: Generates binary brain masks from the images.
 - `creatinggroundtruthageprediction.py`: Combines masks and noisy age maps to create ground truth images for age prediction.
 
-### 2. Pretrain Models
+### 3. Pretrain Models
 
 #### Ablation Study: Comparison of Backbone Architectures
 
@@ -44,7 +49,7 @@ _Run_:
 - `main_swinunetr.py` to train the inpainting model and save weights.
 
 
-### 3. Segmentation Tasks
+### 4. Segmentation Tasks
 
 **A. Segmentation with Transfer Learning (Pretrained Weights)**  
 _Folder_: `segmentation_pretrained/`  
@@ -58,7 +63,7 @@ _Purpose_: Train segmentation models from scratch (no pretraining).
 _Run_:  
 - `swinunetrcrossentropy.py` (or variants) to train and evaluate segmentation without pretraining.
 
-### 4. Compare Results
+### 5. Compare Results
 After training both segmentation approaches (with and without pretraining), compare their performance to evaluate the benefit of transfer/self-supervised learning.
 
 ## Notes

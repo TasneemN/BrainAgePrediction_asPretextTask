@@ -17,9 +17,9 @@ Dependencies can be installed using:
 Before any model training, you must generate voxel-level brain age maps for your dataset.  
 Navigate to `creating_brain_age_masks/` and run the scripts in this order:
 - `assigningageforeachvoxel.py`: Assigns each voxel the participant's age (with optional noise).
-- `introducingnoise.py`: Adds additional random noise to the age maps.
+- `introducingnoise.py`: Adds additional random noise to the age maps (Noise is only introduced for training subset; the purpose is to ensure that the brain age prediction model learns to predict each voxel independently). Validation and testing sets remain noise-free to ensure accurate evaluation of model performance.
 - `onemasksheaders.py`: Generates binary brain masks from the images.
-- `creatinggroundtruthageprediction.py`: Combines masks and noisy age maps to create ground truth images for age prediction.
+- `creatinggroundtruthageprediction.py`: This script generates the final ground truth images for voxel-level age prediction by multiplying binary brain masks with age maps. For the training subset, it uses noisy age maps to encourage robust voxel-wise learning by our brain age prediction model. For the validation and test sets, it uses non-noisy age maps to ensure unbiased evaluation. The output is a masked age map where only brain regions are assigned age values.
 
 ### 3. Pretrain Models
 
